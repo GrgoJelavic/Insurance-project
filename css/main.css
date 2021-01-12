@@ -15,7 +15,7 @@ body {
 /* HEADER */
 
 header {
-    background: url('images/bckgrnd.jpg');
+    background: url('../images/bckgrnd.jpg');
     background-size: cover;
     background-attachment: local;
     background-repeat: no-repeat;
