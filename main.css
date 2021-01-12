@@ -1,0 +1,83 @@
+body {
+    color: #ffffff;
+    text-decoration-color: #708f86;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+header {
+    background: url('images/bckgrnd.jpg');
+    background-size: cover;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    height: 720px;
+    margin: 20px;
+}
+
+.header-inner {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    min-width: 1080px;
+    margin: auto;
+}
+
+.logo {
+    padding: 10px;
+    margin: 20px;
+}
+
+.logo img {
+    width: 100px;
+    color: gray;
+}
+
+.nav {
+    display: inline-block;
+    font-size: 16px;
+}
+
+.link {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 15px;
+    margin: 10px;
+    transition: color 0.3s ease;
+    border-radius: 4%;
+    font-size: 16px;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #2f5b8c;
+    background-color: #ffffff;
+    transition: 0.5s;
+}
+
+.link:focus {
+    color: #2f5b8c;
+    background-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: auto;
+}
