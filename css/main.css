@@ -22,7 +22,7 @@ body {
 }
 
 
-/* HEADER */
+/* Header */
 
 header {
     background: url('../images/bckgrnd.jpg');
@@ -97,7 +97,7 @@ nav a {
 }
 
 
-/* MAIN */
+/* Main */
 
 main {
     background-color: rgb(238, 172, 138);
@@ -106,7 +106,7 @@ main {
 }
 
 
-/* FOOTER */
+/* Footer */
 
 footer {
     display: flex;
@@ -124,4 +124,8 @@ footer div {
 
 footer img {
     width: 40px;
+}
+
+.customers-inner {
+    background-color: rgb(238, 172, 138);
 }
