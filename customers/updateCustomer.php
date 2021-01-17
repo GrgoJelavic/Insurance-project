@@ -10,16 +10,16 @@
         $oib = $_POST['oib'];
         $city = $_POST['city'];
 
-        // $sql = "UPDATE `Customers` SET `oib` = '$oib', `firstName` = '$fName', `lastName` = '$lName' WHERE `Customers`.`id` = '$id'";
-
         $sql = "UPDATE Customers SET firstName='$fName', lastName='$lName', city='$city', oib='$oib' WHERE id = '$id' ";
 
         var_dump($sql);
 
-        $query_run = $conn->query($sql);
+        $query_run = mysqli_query($conn, $sql);
         
+        // NE RADI ALERT?
+
         if($query_run){
-            echo '<script> alert("Customer Updated); </script>';
+            echo '<script> console.log("Customer Updated); </script>';
             header('Location: customersData.php');
         } else echo '<script> alert("Customer Data Is Not Saved); </script>';   
 

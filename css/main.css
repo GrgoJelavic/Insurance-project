@@ -7,9 +7,10 @@ body {
     margin: 0;
 }
 
-* {
+
+/* * {
     box-sizing: border-box;
-}
+} */
 
 .container {
     display: flex;
@@ -29,7 +30,7 @@ header {
     background-size: cover;
     background-attachment: local;
     background-repeat: no-repeat;
-    height: 720px;
+    min-height: 720px;
     margin: 20px 20px 0 20px;
 }
 
@@ -100,8 +101,8 @@ nav a {
 /* Main */
 
 main {
-    background-color: rgb(238, 172, 138);
-    height: 80vh;
+    background-color: #f8d7d9;
+    min-height: 80vh;
     margin: 0 20px;
 }
 
@@ -127,5 +128,5 @@ footer img {
 }
 
 .customers-inner {
-    background-color: rgb(238, 172, 138);
+    background-color: #f8d7d9;
 }
