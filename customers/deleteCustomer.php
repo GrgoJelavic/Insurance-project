@@ -13,23 +13,5 @@
             echo '<script> alert("Customer Data Deleted); </script>';
             header('Location: customersData.php');
         } else echo '<script> alert("Customer Data Is Not Deleted); </script>';   
- 
-    }
-    
-
+    }   
 ?>
-
-        <!-- $('#dataTableID').DataTable({
-            "pagingType": "full_numbers",
-            "lengthMenu": [
-              [10, 25, 50, -1],
-              [10, 25, 50, "All"]
-            ],
-            responsive = false;
-            language = {
-              search: "_INPUT_",
-              searchPlaceholder: "Searchr records";
-            }
-
-        })
-    }); -->

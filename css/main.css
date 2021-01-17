@@ -86,7 +86,7 @@ nav a {
 }
 
 .heading {
-    width: 500px;
+    width: 600px;
     font-size: 40px;
     color: #ffffff;
     text-align: center;
@@ -115,12 +115,17 @@ footer {
     align-items: center;
     background-color: #2f5b8c;
     color: white;
+    flex-direction: row;
     margin: 0 20px 20px 20px;
+    height: 80px;
 }
 
-footer div {
-    margin: 20px;
+#index-footer {
+    display: flex;
+    flex-direction: row;
     padding: 20px;
+    margin: 0 20px 20px 20px;
+    font-size: 20px;
 }
 
 footer img {

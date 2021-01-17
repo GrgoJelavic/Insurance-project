@@ -1,3 +1,18 @@
 .customers-inner {
     background-color: #f8d7d9;
 }
+
+#here {
+    width: 400px;
+    height: 300px;
+    border: 1px solid grey;
+    display: none;
+}
+
+#here a {
+    display: block;
+    width: 98%;
+    padding: 1%;
+    font-size: 20px;
+    border-bottom: 1px solid grey;
+}

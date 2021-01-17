@@ -1,5 +1,5 @@
     <footer>
-        <div class="logo">
+        <div>
             <img src="../images/logo.png" alt="logo">
         </div>
         <div>Project Insurance System </div>

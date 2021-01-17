@@ -16,7 +16,7 @@
 
         $query_run = mysqli_query($conn, $sql);
         
-        // NE RADI ALERT?
+        // NE RADI DOBRO ALERT?
 
         if($query_run){
             echo '<script> console.log("Customer Updated); </script>';
