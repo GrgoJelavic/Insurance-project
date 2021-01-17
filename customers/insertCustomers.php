@@ -16,9 +16,6 @@
         if($query_run){
             echo '<script> alert("Customer Saved); </script>';
             header('Location: customersData.php');
-        } else echo '<script> alert("Customer Data Is Not Saved); </script>';
-
-        
-        
+        } else echo '<script> alert("Customer Data Is Not Saved); </script>';      
     }
 ?>
