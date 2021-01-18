@@ -15,10 +15,9 @@ include '../connection.php';
         </div>
     </header>
 
-
 <main>
     <section>
-<!-- Insert Customer Modal Form (Bootstrap)--------------------------------------------------------->
+<!-- Insert Policy Modal Form (Bootstrap)--------------------------------------------------------->
 <div class="modal fade" id="addPolicyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -32,17 +31,15 @@ include '../connection.php';
         <form action="insertPolicy.php" method="POST">   
           <div class="modal-body">
 
-
-            <div class="form-group">
-                <label>Customer ID</label>
-                <input type="text" name="idCustomer" class="form-control" placeholder="Enter Customer ID Number" required>
-            </div>
-
             <div class="form-group">
                 <label>Type of Insurance</label>
-                <input type="text" name="idType" class="form-control" placeholder="Enter Type of Insurance" required>
+                <input type="number" min="0" name="policyType" class="form-control" placeholder="Enter Type of Insurance" required>
             </div>
 
+            <div class="form-group">
+                <label>CustomerId</label>
+                <input type="text" name="customerId" class="form-control" placeholder="Enter Customer ID Number" required>
+            </div>
 
             <div class="form-group">
                 <label>Start Date</label>
@@ -55,7 +52,7 @@ include '../connection.php';
             </div>
 
             <div class="form-group">
-                <label>Insurance Value</label>
+                <label>Price of the insurance</label>
                 <input type="text" name="price" class="form-control" placeholder="Enter Price of the Insurance" required>
             </div>
 
@@ -75,7 +72,7 @@ include '../connection.php';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">EDIT INSURANCE POLICY DATA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">EDIT POLICY DATA</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -86,14 +83,18 @@ include '../connection.php';
             <input type="hidden" name="updatePolicy_id" id="updatePolicy_id">
 
             <div class="form-group">
-                <label>Customer ID</label>
-                <input type="text" name="idCustomer" id="idCustomer" class="form-control" placeholder="Enter Customer ID Number" required>
+                <label>Type of Insurance</label>
+                <input type="text" name="policyType" id="policyType"  class="form-control" placeholder="Enter Type of Insurance" required>
             </div>
 
+
             <div class="form-group">
-                <label>Type of Insurance</label>
-                <input type="text" name="idType" id="idType" class="form-control" placeholder="Enter Type of Insurance" required>
+                <label>Customer ID</label>
+                <input readonly type="text" name="customerId" id="customerId" class="form-control" placeholder="Enter Customer ID Number" required>
             </div>
+
+            <!-- <input type="hidden" name="firstName">
+            <input type="hidden" name="lastName"> -->
 
             <div class="form-group">
                 <label>Start Date</label>
@@ -102,14 +103,18 @@ include '../connection.php';
 
             <div class="form-group">
                 <label>End Date</label>
-                <input type="date" name="endDate" id="startDate" class="form-control" required>
+                <input type="date" name="endDate" id="endDate" class="form-control" required>
             </div>
 
             <div class="form-group">
                 <label>Insurance Value</label>
-                <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price of the Insurance" required>
+                <input type="text" name="price" id="price" class="form-control" placeholder="Enter price" required>
             </div>
 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" name="updatePolicy" class="btn btn-primary">Save</button>
+            </div>
           </div> 
         </form>
     </div>
@@ -121,7 +126,7 @@ include '../connection.php';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">DELETE POLICY DATA</h5>
+        <h5 class="modal-title" id="exampleModalLabel">DELETE POLICY</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -142,7 +147,8 @@ include '../connection.php';
     </div>
   </div>
 </div>
-        <div class="customers-container container">
+<!-- !!/////////??????????????????????????? -->
+        <div class="customers-container container"> 
             <div class="customers-inner">
                 <div class="card">
                   <div class="card-body">
@@ -157,7 +163,7 @@ include '../connection.php';
                   <div class="card-body">
                   <?php
                     $conn = mysqli_connect("localhost", "root", "", "Insurance");
-                    $sql = "SELECT Policies.idPolicy, Types.typeInsurance, Customers.firstName, Customers.lastName, Policies.startDate, Policies.endDate, Policies.price
+                    $sql = "SELECT Policies.idPolicy, Types.typeInsurance,  Policies.idCustomer, Customers.firstName, Customers.lastName, Policies.startDate, Policies.endDate, Policies.price
                     FROM Policies 
                     INNER JOIN Customers ON Policies.idCustomer = Customers.id
                     INNER JOIN Types ON	Policies.idType = Types.idType
@@ -167,16 +173,16 @@ include '../connection.php';
                     <table id="dataTableID" class="table table-danger table-bordered">
                       <thead>
                         <tr>
-                            <th scope="col">Policy</th>
-                            <th scope="col">Type</th>
-                            <!-- <th scope="col">Customer</th> -->
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
-                            <th scope="col">Value</th>
-                            <th scope="col">EDIT</th>
-                            <th scope="col">DELETE</th>
+                          <th scope="col">Policy</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Customer</th>
+                          <th scope="col">First Name</th>
+                          <th scope="col">Last Name</th>
+                          <th scope="col">Start Date</th>
+                          <th scope="col">End Date</th>
+                          <th scope="col">Value</th>
+                          <th scope="col">EDIT</th>
+                          <th scope="col">DELETE</th>
                         </tr>
                       </thead>
                       <?php       
@@ -187,7 +193,7 @@ include '../connection.php';
                         <tr>                   
                           <td><?php echo $row['idPolicy']; ?></td>
                           <td><?php echo $row['typeInsurance'] ?></td>
-                          <!-- <td><?php echo $row['idCustomer']?></td> -->
+                          <td><?php echo $row['idCustomer']?></td>
                           <td><?php echo $row['firstName'] ?></td>
                           <td><?php echo $row['lastName'] ?></td>
                           <td><?php echo $row['startDate']; ?></td>
@@ -236,13 +242,13 @@ include '../connection.php';
           console.log(data);
            
           $('#updatePolicy_id').val(data[0]);
-          $('#idCustomer').val(data[1]);
-          $('#idType').val(data[2]);
+          $('#customerId').val(data[1]);
+          $('#policyType').val(data[2]);
           $('#startDate').val(data[3])
           $('#endDate').val(data[4]);
           $('#price').val(data[5]);
     });
-  });   
+  });  
 //Delete button
   $(document).ready(function(){
 

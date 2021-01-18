@@ -41,7 +41,7 @@
 
             <div class="form-group">
                 <label>Oib</label>
-                <input type="text" name="oib" class="form-control" placeholder="Enter OIB" required>
+                <input type="number" min="0" value="0" name="oib" class="form-control" placeholder="Enter OIB" required>
             </div>
 
             <div class="form-group">

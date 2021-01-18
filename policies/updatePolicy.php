@@ -2,22 +2,24 @@
     $conn = mysqli_connect('localhost', 'root', '', 'Insurance');
 
     if(isset($_POST['updatePolicy'])){
-        
+            
         $id = $_POST['updatePolicy_id'];
 
-        $policyNumber = $_POST['policyNumber'];
         $policyType = $_POST['policyType'];
-        $oib = $_POST['oib'];
+        $customerId = $_POST['customerId'];
         $startDate = $_POST['startDate'];
         $endDate = $_POST['endDate'];
+        $price = $_POST('price');
 
-        $sql = "UPDATE Policies SET numberPolicy='$policyNumber', typePolicy='$policyType', oib='$oib', startDate='$startDate', endDate='$endDate' WHERE id = '$id' ";
+        // $sql = "INSERT INTO Policies (`idType`, `idCustomer`,`startDate`,`endDate`, `price`)
+        //         VALUES ($policyType', '$customerId', '$startDate', '$endDate', '$price')";
+
+        $sql = "UPDATE Policies SET idType='$policyType', idCustomer='$CustomerId', startDate='$startDate', endDate='$endDate' price='$price' WHERE id = '$id' ";
 
         var_dump($sql);
 
         $query_run = mysqli_query($conn, $sql);
         
-        // NE RADI DOBRO ALERT?
 
         if($query_run){
             echo '<script> console.log("Policy Updated); </script>';

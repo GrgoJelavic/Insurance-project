@@ -5,7 +5,7 @@
 
         $id = $_POST['deletePolicy_id'];
 
-        $sql = "DELETE FROM Policies WHERE id='$id'";
+        $sql = "DELETE FROM Policies WHERE idPolicy='$id'";
 
         $query_run = $conn->query($sql);
 
