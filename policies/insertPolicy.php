@@ -3,14 +3,14 @@
 
     if(isset($_POST['insertPolicy'])){
 
-        $policyNumber = $_POST['policyNumber'];
-        $policyType = $_POST['policyType'];
-        $oib = $_POST['oib'];
+        $idCustomer = $_POST['idCustomer'];
+        $idType = $_POST['idType'];
         $startDate = $_POST['startDate'];
         $endDate = $_POST['endDate'];
+        $price = $_POST['price'];
 
-        $sql = "INSERT INTO Policies (`numberPolicy`,`typePolicy`, `oib`,`startDate`,`endDate`)
-                VALUES ('$policyNumber', '$policyType', '$oib', '$startDate', '$endDate')";
+        $sql = "INSERT INTO Policies (`idCustomer`,`idType`, `startDate`,`endDate`, `price`)
+                VALUES ( '$idCustomer', '$idType','$startDate', '$endDate', '$price')";
 
         $query_run = $conn->query($sql);
 
