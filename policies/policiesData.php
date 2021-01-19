@@ -1,6 +1,8 @@
 <?php
 include '../content/header.php';
 include '../connection.php';
+$conn = mysqli_connect("localhost", "root", "", "Insurance");
+
 ?>
             <nav>
                 <a href="../index.php" class="link">HOME</a>
@@ -173,6 +175,8 @@ include '../connection.php';
                     <table id="dataTableID" class="table table-danger table-bordered">
                       <thead>
                         <tr>
+                              <th scope="col">No</th>
+
                             <th scope="col">Policy</th>
                             <th scope="col">Type</th>
                             <th scope="col">Insurance</th>
@@ -186,12 +190,13 @@ include '../connection.php';
                             <th scope="col">DELETE</th>
                         </tr>
                       </thead>
+                    <tbody>
                       <?php       
                         if($query_run) {
-                          foreach($query_run as $row){
+                          foreach($query_run as $key=>$row){
                       ?>
-                      <tbody>
-                        <tr>                   
+                        <tr>  
+                          <td><?php echo $key + 1 ?></td>      
                           <td><?php echo $row['idPolicy']; ?></td>
                           <td><?php echo $row['idType'] ?></td>
                           <td><?php echo $row['typeInsurance'] ?></td>
@@ -209,11 +214,11 @@ include '../connection.php';
                             <button type="button" class="btn btn-danger deletePolicy">Delete</button>
                           </td>
                         </tr>
-                      </tbody>
                         <?php
                             }
                           }else echo "No records!";
-                        ?>
+                          ?>
+                        </tbody>
                     </table>
                   </div>
                 </div>
@@ -275,5 +280,7 @@ include '../connection.php';
 </script>
 
 <?php
-include '../content/footer.php';
+include '../content/footer.php';  
+$conn->close();
+
 ?>
