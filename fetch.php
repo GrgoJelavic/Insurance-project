@@ -17,28 +17,32 @@ if(isset($_POST["query"]))
  $html .= '
   <table class="table table-bordered table-striped">
    <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>OIB</th>
-    <th>city</th>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>OIB</th>
+      <th>City</th>
+      <th>View</th>
    </tr>
   ';
  if(mysqli_num_rows($result) > 0)
  {
   while($row = mysqli_fetch_array($result))
-  {
+  {    
+   $data[] = $row["id"];
    $data[] = $row["fName"];
    $data[] = $row["lName"];
    $data[] = $row["oib"];
-    $data[] = $row["city"];
+   $data[] = $row["city"];
 
    $html .= '
    <tr>
-    <td>'.$row["firstName"].'</td>
-    <td>'.$row["lastName"].'</td>
-    <td>'.$row["oib"].'</td>
-    <td>'.$row["city"].'</td>
-
+      <td>'.$row["id"].'</td>
+      <td>'.$row["firstName"].'</td>
+      <td>'.$row["lastName"].'</td>
+      <td>'.$row["oib"].'</td>
+      <td>'.$row["city"].'</td>
+      <td><input type="button" name="view" class="view_data btn btn-info btn-xs" value="INFO" id="<?php echo $row["id"];?></td>
    </tr>
    ';
   }

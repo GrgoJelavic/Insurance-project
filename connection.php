@@ -35,7 +35,7 @@
                 )ENGINE=InnoDB DEFAULT CHARSET=utf8;";
         $conn->query($sql); 
         // Insert data into Types 
-        $sql = "INSERT INTO Types (idType, typeInsurance) VALUES (1, 'Life Insurance Insurance') , (3, 'Car Insurance'), (4, 'Boat Insurance'), (5, 'Health Insurance'), (6, 'Travel Insurance'), (7, 'Marine Insurance'), (8, 'Guarantee Insurance'), (9, 'Fire Insurance'), (10, 'Adventure Insurance');";
+        $sql = "INSERT INTO Types (idType, typeInsurance) VALUES (1, 'Life Insurance') , (2, 'Property '), (3, 'Car'), (4, 'Boat'), (5, 'Health'), (6, 'Travel'), (7, 'Marine'), (8, 'Guarantee'), (9, 'Fire'), (10, 'Adventure');";
         $conn->query($sql);
 
         // Create table Policies       

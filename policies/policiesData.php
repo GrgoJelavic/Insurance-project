@@ -35,14 +35,13 @@ include '../connection.php';
 
             <div class="form-group">
                 <label>Customer ID</label>
-                <input type="text" name="idCustomer" class="form-control" placeholder="Enter Customer ID Number" required>
+                <input type="number" min="0" value="0" name="idCustomer" class="form-control" placeholder="Enter Customer ID Number" required>
             </div>
 
             <div class="form-group">
                 <label>Type of Insurance</label>
-                <input type="text" name="idType" class="form-control" placeholder="Enter Type of Insurance" required>
+                <input type="number" min="0" value="0" name="idType" class="form-control" placeholder="Enter Type of Insurance" required>
             </div>
-
 
             <div class="form-group">
                 <label>Start Date</label>
@@ -56,7 +55,7 @@ include '../connection.php';
 
             <div class="form-group">
                 <label>Insurance Value</label>
-                <input type="text" name="price" class="form-control" placeholder="Enter Price of the Insurance" required>
+                <input type="number" min="0" value="0" name="price" class="form-control" placeholder="Enter Price of the Insurance" required>
             </div>
 
             <div class="modal-footer">
@@ -86,14 +85,16 @@ include '../connection.php';
             <input type="hidden" name="updatePolicy_id" id="updatePolicy_id">
 
             <div class="form-group">
-                <label>Customer ID</label>
-                <input type="text" name="idCustomer" id="idCustomer" class="form-control" placeholder="Enter Customer ID Number" required>
+                <label>Type of Insurance ID</label>
+                <input type="number" min="0" value="0" name="idType" id="idType" class="form-control" placeholder="Enter Type of Insurance" required>
             </div>
 
+
             <div class="form-group">
-                <label>Type of Insurance</label>
-                <input type="text" name="idType" id="idType" class="form-control" placeholder="Enter Type of Insurance" required>
+                <label>Customer ID</label>
+                <input type="number" min="0" value="0" name="idCustomer" id="idCustomer" class="form-control" placeholder="Enter Customer ID Number" required>
             </div>
+
 
             <div class="form-group">
                 <label>Start Date</label>
@@ -102,12 +103,17 @@ include '../connection.php';
 
             <div class="form-group">
                 <label>End Date</label>
-                <input type="date" name="endDate" id="startDate" class="form-control" required>
+                <input type="date" name="endDate" id="endDate" class="form-control" required>
             </div>
 
             <div class="form-group">
                 <label>Insurance Value</label>
-                <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price of the Insurance" required>
+                <input type="number" min="0" value="0" name="price" id="price" class="form-control" placeholder="Enter Price of the Insurance" required>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" name="updatePolicy" class="btn btn-primary">Save</button>
             </div>
 
           </div> 
@@ -157,7 +163,7 @@ include '../connection.php';
                   <div class="card-body">
                   <?php
                     $conn = mysqli_connect("localhost", "root", "", "Insurance");
-                    $sql = "SELECT Policies.idPolicy, Types.typeInsurance, Customers.firstName, Customers.lastName, Policies.startDate, Policies.endDate, Policies.price
+                    $sql = "SELECT Policies.idPolicy, Types.idType, Types.typeInsurance, Policies.idCustomer, Customers.firstName, Customers.lastName, Policies.startDate, Policies.endDate, Policies.price
                     FROM Policies 
                     INNER JOIN Customers ON Policies.idCustomer = Customers.id
                     INNER JOIN Types ON	Policies.idType = Types.idType
@@ -169,7 +175,8 @@ include '../connection.php';
                         <tr>
                             <th scope="col">Policy</th>
                             <th scope="col">Type</th>
-                            <!-- <th scope="col">Customer</th> -->
+                            <th scope="col">Insurance</th>
+                            <th scope="col">Client</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Start Date</th>
@@ -186,13 +193,14 @@ include '../connection.php';
                       <tbody>
                         <tr>                   
                           <td><?php echo $row['idPolicy']; ?></td>
+                          <td><?php echo $row['idType'] ?></td>
                           <td><?php echo $row['typeInsurance'] ?></td>
-                          <!-- <td><?php echo $row['idCustomer']?></td> -->
+                          <td><?php echo $row['idCustomer']?></td>
                           <td><?php echo $row['firstName'] ?></td>
                           <td><?php echo $row['lastName'] ?></td>
                           <td><?php echo $row['startDate']; ?></td>
                           <td><?php echo $row['endDate']; ?></td>
-                          <td><?php echo $row['price'].' EUR'; ?></td>
+                          <td><?php echo $row['price']; ?></td>
 
                           <td>
                             <button type="button" class="btn btn-success updatePolicy">Update</button>
@@ -236,11 +244,14 @@ include '../connection.php';
           console.log(data);
            
           $('#updatePolicy_id').val(data[0]);
-          $('#idCustomer').val(data[1]);
-          $('#idType').val(data[2]);
-          $('#startDate').val(data[3])
-          $('#endDate').val(data[4]);
-          $('#price').val(data[5]);
+          $('#idType').val(data[1]);
+          // $('#typeInsurance').val(data[2]);
+          $('#idCustomer').val(data[3]);
+          // $('#firstName').val(data[4]);
+          // $('#LastName').val(data[5])
+          $('#startDate').val(data[6]);
+          $('#endDate').val(data[7]);
+          $('#price').val(data[8]);
     });
   });   
 //Delete button
