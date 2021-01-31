@@ -16,12 +16,9 @@
 
         $query_run = mysqli_query($conn, $sql);
         
-        // NE RADI DOBRO ALERT?
         if($query_run){
             echo '<script> console.log("Customer Updated); </script>';
             header('Location: customersData.php');
         } else echo '<script> alert("Customer Data Is Not Saved); </script>';   
 
     }
-
-?>

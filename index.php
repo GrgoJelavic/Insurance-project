@@ -6,26 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insurance system</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <script defer src="script.js"></script>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <!-- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" crossorigin="anonymous"></script> -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/data.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </head>
-
-
 
 <body>
     <header>
@@ -47,7 +35,6 @@
     </header>
 
     <main>
-
         <section>
             <br />
             <div class="container">
@@ -69,14 +56,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
                     <h4 class="modal-title">Customer Insurance Records</h4>
                 </div>
                 <div class="modal-body" id="">
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div> -->
             </div>
         </div>
     </div>
@@ -124,15 +107,12 @@
                 var query = $(this).text();
                 load_data(query);
             });
-
         });
 
         // MODAL
-        //console.log('click');
         $(document).off('click', '.view_data').on('click', '.view_data', function(e) {
 
             var id = $(this).attr('data-id');
-
 
             $.ajax({
                 url: "customerHandler.php",
@@ -151,16 +131,9 @@
                     $('#dataModal').modal('show');
                 }
             });
-
-
         });
-        $(document).ready(function() {
-
-
-
-        });
+        $(document).ready(function() {});
     </script>
-
 
     <footer id="index-footer">
         <div>

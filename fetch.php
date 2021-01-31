@@ -1,5 +1,5 @@
 <?php
-//fetch.php
+
 if (isset($_POST["query"])) {
    $connect = mysqli_connect("localhost", "root", "", "Insurance");
    $request = mysqli_real_escape_string($connect, $_POST["query"]);
@@ -31,7 +31,6 @@ if (isset($_POST["query"])) {
          $data[] = $row["lName"];
          $data[] = $row["oib"];
          $data[] = $row["city"];
-
          $html .= '
    <tr>
       <td>' . $row["id"] . '</td>
@@ -52,6 +51,7 @@ if (isset($_POST["query"])) {
    ';
    }
    $html .= '</table>';
+
    if (isset($_POST['typehead_search'])) {
       echo $html;
    } else {
